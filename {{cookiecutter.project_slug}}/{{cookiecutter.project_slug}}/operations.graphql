@@ -1,0 +1,7 @@
+query People {
+  people {
+    name
+    email
+    created_at
+  }
+}

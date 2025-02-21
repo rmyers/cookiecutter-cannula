@@ -1,0 +1,19 @@
+{% raw %}
+<div class="People">
+  <div class="field-group people">
+    <h3 class="field-name"></h3>
+    <div class="field people.name">
+      <label>name</label>
+      <span class="value">{{ people.name }}</span>
+    </div>
+    <div class="field people.email">
+      <label>email</label>
+      <span class="value">{{ people.email }}</span>
+    </div>
+    <div class="field people.created_at">
+      <label>created_at</label>
+      <sl-format-date date="{{ people.created_at }}"></sl-format-date>
+    </div>
+  </div>
+</div>
+{% endraw %}

@@ -1,0 +1,50 @@
+{% raw %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% endraw %}{{cookiecutter.project_name}}{% raw %}</title>
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <!-- Optional: Include Hyperscript for more complex interactions -->
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <!-- Optional: Include TailwindCSS -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- Base theme provided by cannula to get started -->
+    <link href="{{ url_for('static', path='/css/base.min.css') }}" rel="stylesheet" />
+    <!-- This theme is in the project 'app/_static/css' to override defaults -->
+    <link href="{{ url_for('static', path='/css/theme.css') }}" rel="stylesheet" />
+  </head>
+
+  <!-- Body class options 'layout-full', 'layout-wide', 'layout-narrow' -->
+  <body class="{% block body-class %}layout-narrow{% endblock %}">
+    <!-- Navigation -->
+    <header>
+      <h1>{% endraw %}{{cookiecutter.project_name}}{% raw %}</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer>
+      <p>Powered by <a href="https://cannula.org">Cannula</a></p>
+    </footer>
+
+    <!-- Add drawers -->
+    <app-drawer position="left" button-text="menu">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+      <h3>Theme</h3>
+      <theme-toggle></theme-toggle>
+    </app-drawer>
+
+    <!-- Include some basic webcomponents from cannula -->
+    <script type="module" src="{{ url_for('static', path='/js/components.js')}}"></script>
+  </body>
+</html>
+{% endraw %}

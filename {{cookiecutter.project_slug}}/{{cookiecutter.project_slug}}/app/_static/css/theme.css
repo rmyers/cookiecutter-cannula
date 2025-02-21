@@ -1,0 +1,17 @@
+/* Sepia theme example to override the default light theme */
+[data-theme="light"] {
+  --neutral-hue: 35;
+  --bg-hsl: var(--neutral-hue) 30% 96%;
+  --surface-hsl: var(--neutral-hue) 25% 90%;
+  --text-hsl: var(--neutral-hue) 50% 20%;
+  --text-secondary-hsl: var(--neutral-hue) 30% 40%;
+  --border-hsl: var(--neutral-hue) 30% 80%;
+  --primary-hue: 35;
+}
+
+/* Custom css styles for our site */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}

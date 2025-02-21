@@ -1,0 +1,50 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.0.1"
+description = "{{cookiecutter.project_short_description}}"
+
+dependencies = [
+  "aiosqlite",
+  "cannula[codegen]",
+  "click",
+  "greenlet",
+  "jinja2",
+  "sqlalchemy>2",
+  "uvicorn>=0.25.0",
+  "python-dateutil>=2.9.0",
+
+  # Testing Tools
+  "pytest<8",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-httpx",
+  "pytest-mock",
+  "ruff",
+  "mypy",
+]
+
+[tool.cannula.codegen]
+app_dir = "{{cookiecutter.project_slug}}/app"
+scalars = ["cannula.scalars.date.Datetime", "cannula.scalars.util.UUID"]
+dest = "{{cookiecutter.project_slug}}/gql"
+schema = "{{cookiecutter.project_slug}}/schema.graphql"
+operations = "{{cookiecutter.project_slug}}/operations.graphql"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+minversion = "6.0"
+addopts = [
+  "-vvv",
+  "--cov={{cookiecutter.project_slug}}",
+  "--cov-report=term-missing:skip-covered",
+  "--cov-report=html",
+  "--cov-report=json:reports/coverage.json",
+  "--junit-xml=reports/junit.xml",
+]
+
+[tool.mypy]
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
