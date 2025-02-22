@@ -1,6 +1,9 @@
-REQUIREMENTS             := pyproject.toml
-SHELL                    := /bin/bash
-VIRTUAL_ENV              := venv
+# Useful commands for running cannula
+
+REQUIREMENTS		:= pyproject.toml
+SHELL				:= /bin/bash
+VIRTUAL_ENV			:= venv
+PYTHON				:= $(shell command -v python3 || command -v python)
 
 # PHONY just means this target does not make any files
 .PHONY: setup clean test help
@@ -9,7 +12,7 @@ default: help
 
 # Make sure the virtualenv exists, create it if not.
 $(VIRTUAL_ENV):
-	python3 -m venv $(VIRTUAL_ENV)
+	$(PYTHON) -m venv $(VIRTUAL_ENV)
 
 # Check for the existence/timestamp of .reqs-installed if the
 # file is missing or older than the pyproject.toml this will run pip
