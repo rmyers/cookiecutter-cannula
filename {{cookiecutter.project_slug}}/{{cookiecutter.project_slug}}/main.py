@@ -26,7 +26,7 @@ root_value: RootType = {
 }
 
 
-app = CannulaApplication[RootType](
+app = CannulaApplication(
     root_value=root_value,
     context=Context,
 )

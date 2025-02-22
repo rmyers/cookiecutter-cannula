@@ -14,7 +14,7 @@ $(VIRTUAL_ENV):
 # Check for the existence/timestamp of .reqs-installed if the
 # file is missing or older than the pyproject.toml this will run pip
 $(VIRTUAL_ENV)/.reqs-installed: $(REQUIREMENTS)
-	$(VIRTUAL_ENV)/bin/pip install -r $(REQUIREMENTS)
+	$(VIRTUAL_ENV)/bin/pip install -e .
 	touch $(VIRTUAL_ENV)/.reqs-installed
 
 setup: $(VIRTUAL_ENV) $(VIRTUAL_ENV)/.reqs-installed ## Setup local environment

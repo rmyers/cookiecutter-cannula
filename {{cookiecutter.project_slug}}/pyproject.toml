@@ -24,7 +24,7 @@ dependencies = [
 ]
 
 [tool.cannula.codegen]
-app_dir = "{{cookiecutter.project_slug}}/app"
+app_directory = "{{cookiecutter.project_slug}}/app"
 scalars = ["cannula.scalars.date.Datetime", "cannula.scalars.util.UUID"]
 dest = "{{cookiecutter.project_slug}}/gql"
 schema = "{{cookiecutter.project_slug}}/schema.graphql"
