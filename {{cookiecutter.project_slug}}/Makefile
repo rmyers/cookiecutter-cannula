@@ -1,4 +1,21 @@
-# Useful commands for running cannula
+#% _________________________________________________
+#%      _________    _   ___   ____  ____    ___
+#%     / ____/   |  / | / / | / / / / / /   /   |
+#%    / /   / /| | /  |/ /  |/ / / / / /   / /| |
+#%   / /___/ ___ |/ /|  / /|  / /_/ / /___/ ___ |
+#%   \____/_/  |_/_/ |_/_/ |_/\____/_____/_/  |_|
+#% _________________________________________________
+#%
+#% Tools for building, running, and testing cannula applications.
+#%
+#% Usage:
+#%   make <command>
+#%
+#% Getting Started:
+#%   make setup
+#%   make run
+#%
+#% Available Commands:
 
 REQUIREMENTS		:= pyproject.toml
 SHELL				:= /bin/bash
@@ -52,4 +69,5 @@ addusers: setup  ## Add test users
 	$(VIRTUAL_ENV)/bin/python -m {{cookiecutter.project_slug}} addusers
 
 help: ## Show the available commands
+	@grep '^#%' $(MAKEFILE_LIST) | sed -e 's/#%//'
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | awk -F ':.*?## ' 'NF==2 {printf "   %-20s%s\n", $$1, $$2}' | sort
