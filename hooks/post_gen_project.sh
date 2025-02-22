@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd {{cookiecutter.project_slug}}
-ls
+make setup
+make generate args=--force
