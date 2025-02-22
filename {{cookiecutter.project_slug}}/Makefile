@@ -1,6 +1,6 @@
 REQUIREMENTS             := pyproject.toml
 SHELL                    := /bin/bash
-VIRTUAL_ENV              ?= venv
+VIRTUAL_ENV              := venv
 
 # PHONY just means this target does not make any files
 .PHONY: setup clean test help
@@ -38,6 +38,9 @@ mypy: setup ## Run mypy on code
 
 run: setup  ## Run the application
 	$(VIRTUAL_ENV)/bin/python -m {{cookiecutter.project_slug}} run
+
+generate: setup  ## Run cannula codegen on the project. Pass args like (make generate args='--force')
+	$(VIRTUAL_ENV)/bin/cannula codegen $(args)
 
 initdb: setup  ## Create database tables
 	$(VIRTUAL_ENV)/bin/python -m {{cookiecutter.project_slug}} initdb
